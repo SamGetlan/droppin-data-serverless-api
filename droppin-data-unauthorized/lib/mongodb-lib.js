@@ -70,15 +70,7 @@ export const loadGames = (user, callback) => {
 
 export const checkUsername = (username) => User.findOne({ username }).exec();
 
-export const checkEmail = (email, callback) => {
-  User.findOne({ email }, (err, result) => {
-    if (err) {
-      console.log('There was an error in checkEmail:', err);
-    } else {
-      callback(err, result);
-    }
-  });
-};
+export const checkEmail = (email) => User.findOne({ email }).exec(); 
 
 export const checkToken = (token, callback) => {
   User.findOne({ resetPasswordToken: token, resetPasswordExpires: { $gt: Date.now() } }, (err, result) => {

@@ -30,5 +30,12 @@ functions:
     handler: checkUsername.main
     events:
       - http:
-          path: hello
-          method: get
+          path: api/checkUsername
+          method: post
+
+  checkEmail:
+    handler: checkEmail.main
+    events:
+      - http:
+          path: api/checkEmail
+          method: post
