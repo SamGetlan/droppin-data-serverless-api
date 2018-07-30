@@ -54,12 +54,14 @@ export async function main(event, context, callback) {
           });
         });
       }
-      let mailed = await sendMail(mailOptions)
+      let mailed = await sendMail(mailOptions);
       if (mailed === 'done') {
-        callback(null, success({ success: 'email sent' }));
+        callback(null, success({ message: 'email sent' }));
       } else {
         callback(null, success({ err: mailed }));
       }
+    } else {
+      callback(null, success({ message: 'no user found' }));
     }
   } catch (e) {
     callback(null, failure({ status: false }));

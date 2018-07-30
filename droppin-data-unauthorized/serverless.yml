@@ -46,3 +46,10 @@ functions:
       - http:
           path: api/forgot
           method: post
+
+  resetPassword:
+    handler: resetPassword.main
+    events:
+      - http:
+          path: api/resetPassword
+          method: post
