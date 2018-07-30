@@ -23,11 +23,11 @@ provider:
   # the following line. Also, make sure to not
   # commit your env.yml.
   #
-  #environment: ${file(env.yml):${self:provider.stage}}
+  environment: ${file(env.yml):${self:provider.stage}, file(env.yml):default}
 
 functions:
-  hello:
-    handler: handler.hello
+  checkUsername:
+    handler: checkUsername.main
     events:
       - http:
           path: hello
