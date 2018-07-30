@@ -70,6 +70,12 @@ export const loadGames = (user, callback) => {
 
 export const checkUsername = (username) => User.findOne({ username }).exec();
 
+export const checkEmailCB = (email, cb) => {
+  User.findOne({ email }, (err, user) => {
+    cb(err, user);
+  })
+}
+
 export const checkEmail = (email) => User.findOne({ email }).exec(); 
 
 export const checkToken = (token, callback) => {

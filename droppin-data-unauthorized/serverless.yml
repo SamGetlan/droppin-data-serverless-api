@@ -39,3 +39,10 @@ functions:
       - http:
           path: api/checkEmail
           method: post
+
+  forgot:
+    handler: forgot.main
+    events:
+      - http:
+          path: api/forgot
+          method: post
