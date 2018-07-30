@@ -1,5 +1,5 @@
 # NOTE: update this with your service name
-service: droppin-data-api
+service: droppin-data-unauthorized-api
 
 # Use the serverless-webpack plugin to transpile ES6
 plugins:
