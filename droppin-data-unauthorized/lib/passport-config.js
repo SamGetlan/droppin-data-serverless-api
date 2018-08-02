@@ -19,6 +19,10 @@ const configurePassport = (passport) => {
     (req, username, password, done) => {
       process.nextTick(() => {
         console.log('inside local-signup');
+        console.log('req:', req);
+        console.log('username:', username);
+        console.log('password:', password);
+        console.log('done:', done);
         User.findOne({ username }, (err, user) => {
           if (err) { return done(err); }
           if (user) {
@@ -35,7 +39,7 @@ const configurePassport = (passport) => {
             const newUser = new User();
             newUser.username = username;
             newUser.password = newUser.generateHash(password);
-            newUser.createdAt = req.body.createdAt;
+            newUser.createdAt = Date.now();
             newUser.email = req.body.emailAddress.toLowerCase();
             newUser.settings = {
               colorBlind: false,

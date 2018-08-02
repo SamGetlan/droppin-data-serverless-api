@@ -53,3 +53,10 @@ functions:
       - http:
           path: api/resetPassword
           method: post
+  
+  signup:
+    handler: signup.main
+    events:
+      - http:
+          path: api/signup
+          method: post
