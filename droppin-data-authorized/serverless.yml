@@ -26,9 +26,39 @@ provider:
   #environment: ${file(env.yml):${self:provider.stage}}
 
 functions:
-  hello:
-    handler: handler.hello
+
+
+  createGame:
+    handler: createGame.main
     events:
       - http:
-          path: hello
-          method: get
+          path: api/games
+          method: post
+          cors: true
+
+  readGames:
+    handler: readGames.main
+    events:
+      - events:
+        - http:
+            path: api/games
+            method: get
+            cors: true
+  
+  deleteGame:
+    handler: deleteGame.main
+    events:
+      - events:
+        - http:
+          path: api/games
+          method: delete
+          cors: true
+  
+  updateGame:
+    handler: updateGame.main
+    events:
+      - events:
+        - http:
+          path: api/games
+          method: put
+          cors: true
